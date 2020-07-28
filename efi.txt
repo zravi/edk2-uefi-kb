@@ -1,0 +1,634 @@
+BOOT BIOS UEFI.
+fastboot boot uefi.img
+
+weixin_30321449. 2017-01-07 12:58:00。  29。  Collection.
+Copyright.
+ 
+1. What is boot?
+
+BOOT is actually a small program that runs automatically before your computer Microsoft operating system runs after you press the power-on key. On the surface is the Windows boot screen before those black screen blue screen in English that stage is BOOT. With this small program, it can initialize the hardware device and create a map of the memory space, thus bringing the system's hardware and software environment to a suitable state to prepare the correct environment for the final call to the operating system kernel.
+
+2. What is a BIOS?
+
+BIOS it is actually in the computer before the Microsoft system run, but boot after the emergence of a pre-started operating environment program, strictly considered software. Is a group of cured to the computer motherboard on a ROM chip program, translated after the name of the Chinese is "basic input and output system." 它保存着计算机最重要的基本输入输出的程序、系统设置信息、开机后自检程序和系统自启动程序。 Its main function is to provide the computer with the lowest and most direct hardware setup and control.
+
+The point is that in many tutorials many people confuse it with BOOT, and many BOOT settings, also known as BIOS settings. But strictly speaking, boot settings are said that the computer press the power-on key, the black screen boot run, you press the shortcut key to call out a variety of BOOT programs, such as THE BIOS this keystroke process. And the BIOS setting is that you have to press the shortcut key seam, from boot into the BIOS program after the settings in the BIOS program this process.
+
+3. What is UEFI?
+
+UEFI it is actually the same nature of the same thing, the same program, is with the development of the bioS upgrade version, is seen as nearly 20 years old BIOS successor. The full name is the "unified extensible firmware interface", which is also in the computer before the Microsoft system runs, but boot after the emergence of a pre-boot operating environment program. Because of the rapid development of hardware, the Legacy BIOS has become a burden of progress, and the latest UEFI (UnifiedexendsFirmware Interface) expandable firmware interface has been developed. But the creation of human is, in theory is more advanced than the BIOS UEFI, but there are still many lack of support, often a lot of UEFI boot computer, in the end or switch back to the BIOS.
+
+4. What is the difference between BIOS and UEFI?
+
+What is the difference between BIOS and UEFI, we only talk about the difference between BIOS computer and UEFI computer, in the U disk boot use.
+
+1. The computer is the UEFI mode can be switched back to the BIOS mode, the BIOS mode can not change the UEFI mode. The functional meaning of the program is the same program, and UEFI itself should be a more advanced interface, but because the computer hardware replacement is not so fast, insufficient support, many UEFI computers still have the support to switch back to the BIOS mode options.
+
+2. Entering the BIOS and entering the UEFI shortcut is the same, the software interface settings operation is similar.
+
+(3. But bioS and UEFI boot boot support is different, support BIOS USB drive, many in UEFI can not start, so often support the BIOSU disk boot USB drive, on the UEFI computer must switch back to THE BIOS.
+
+(4)GHOST system mirror or GHOST in this category of various types of software and system reloading tools, in the UEFI boot computer reload easy to appear all kinds of problems, compatibility is not the traditional BIOS computer good.
+
+Traditional BIOS boot installation of the computer, partition table format is MBR, the installation is basically the BIOS boot and MBR partition format.
+
+While The UEFI boot installation of the computer, the hard disk partition table is IN THE GPT format, after the operating system is installed it is run on the UEFI boot and GPT partition format based on. From the hard disk partition, UEFI and BIOS is two completely different partition table format, so often with GHOST backup out of the system, you reload restore, preferably the original BIOS installed in the BIOS boot mode of the computer, the original UEFI installed in the UEFI computer. Otherwise it's easy to get into trouble.
+
+The best solution is that if your computer is UEFI mode and you don't want to switch to bioS, uEFI mode is best to use U-home tools to install the ISO image of Microsoft's official original disk, rather than the ghost system. Because Microsoft's official original image can be set up for UEFI and GPT at once. But I'd like to talk to you, assuming you want UEFI, then you can only install win10, which is produced in win8 and beyond, these two 64-bit systems. The Microsoft system below win8 you don't have to to stow, because win7, xp, 2003 those, they were born in the age no UEFI, are not native to support UEFI.
+
+But from my personal suggestion, if you buy the computer is pre-installed in UEFI mode installed system, it is best to switch back to BIOS mode, and then reform all the hard disk GPT partition to convert back to MBR, honest and practical BIOS-mbr partition installed system.
+
+(5) UEFI computer only supports 64-bit system, and BIOS computer can not support mounted single block space more than 2T space of the hard disk.
+
+5. Precautions for BIOS and UEFI during use.
+
+(1) If it is a re-installed system (that is, the computer has been installed Microsoft system), BIOS need not say much about no entanglement, BIOS directly use U home and then see the tutorial installed.
+
+(2) UEFI will be tangled up, if the computer originally installed the system is UEFI and GPT partition mode.
+
+(3) use U-Man BIOS to make a U disk, UEFI's computer must be switched to BIOS, and the hard disk partition is GPT to be all converted to MBR, in order to GHOST reload. The original data for the hard drive conversion partition may be completely without. Because you were originally a UEFI-GPT partition computer, even if you switch to BIOS mode can successfully start the U-Man USB stick, BIOS mode can not identify the original UEFI mode GPT partition of the hard disk.
+
+(4) If it is a new installed system (that is, the computer did not install Microsoft system), there are many, such as your computer bought back is not with the system, manufacturers do not pack pre-installed system only DOS, or Apple computer originally brought its own Apple system, or the computer bought back pre-installed Linux system.
+
+In this case, whether it is BIOS or UEFI, I do not recommend you use GHOST mirror new installation, a lot of problems. The best is to download the ISO image of Microsoft's official original disk, use the U-Man tool (whether bioS version or UEFI version can be) directly to write the microsoft official original image to the U disk, and then the U disk to start directly go to the official original image installation process.
+
+Because Microsoft's official original original disk mirror, although it is not activated, and also did not drive, but the computer new boot support, can let you really repartition the computer once, install a variety of support. General reload only use GHOST, the new installation is best original.
+
+The above is boot, BIOS, UEFI between the differences between the introduction, more wonderful content continue to pay attention to the U-Man official website.
+
+
+
+EFI development and commissioning --- the introduction of the edk2 neutron directory.
+
+Program ape Ricky's daily dry goods. 2018-06-21 14:38:50。  2192。  Favorite 11 .
+Category column: UEFI development and commissioning.
+Copyright.
+AppPkg
+UEFI Application Development Kit is a suite of suites used for uefi app development, standard dependent libraries, tools, and demos, with the goal of lowering the development threshold for UEFI apps.
+
+MdePkg
+is known as the "Module Development Environment Package", a special package that contains the smallest environment needed to develop a module. One module may also depend on other Packages, but all modules must rely on MdePkg.
+
+MdeModulePkg
+this package provides modules that meet the UEFI/PI industry standards, as well as the development environment associated with this standard, PPIs/PROTOCOLs/GUIDs and dependency libraries.
+
+ArmPkg
+provides protocols related to ARM architecture, which are common codes on arm platforms.
+
+The ArmPlatformPkg
+ARM board-related UEFI code, which contains some of the components common lying on the ARM platform, reuses these builds to make porting between different patterns of arm platforms easier.
+
+The
+BaseTools package provides compilation-related tools for EDK and EDK2, such as: AutoGen, Build, GenSec, GenFV, GenFW, GenRds tools.
+
+Beagle Board
+Pkg Beagle Board is a cheap and flexible single board computer that students who have played with the board should know about, based on the OMAP3530 SoC (ARM Cortex TM-A8) processor. This package is the support code for this board.
+
+Coreboot ModulePkg
+Coreboot originally competed with UEFI/BIOS, but now Coreboot is moving closer to UEFI standards, and now it's easy to boot from coreboot to UEFI, Coreboot Supports contains the following code: code to parse the coreboot table, code for reporting memory/IO resources, installation of Moduleandandands table to EFI system table. It is located in the middle layer of the uefi environment and hardware.
+
+
+Coreboot PayloadPkg
+is used to load the upper UEFI environment in the middle layer, Hardware-gt; Coreboot-CorebootPayload-CorebootPayload-Gt; UEFI-gt;HLOS.
+
+CryptoPkg
+UEFI defines the interface between HLOS (high level OS) and platform firmware, and several security features have been added after version 2.2, which is used to provide encryption support.
+
+The UEFI simulator used by DuetPkg
+developers simulates the UEFI environment on the BIOS machine. DUET is based on the Legacy BIOS provides a UEFI simulator that provides a UEFI environment on traditional BIOS systems.
+
+The EdkCompatibilityPkg
+EDK compatible package provides libraries and header files for EDK compilation in UEFI 2.0 plus Framework0.9x mode.
+
+Edk Shell Pkg, Edk
+Shell Bin Pkg EDK Shell Development Package and an official EDK Shell implementation, both of which have been gradually replaced by Shell 2.x.
+
+ShellPkg, ShellBinPkg
+Shell 2.x version development package and an official UEFI Shell implementation.
+
+EmbeddedPkg
+provides a protocol implementation for memory mapped controllers, as well as a simple EFI shell (EBL).
+
+The EmulatorPkgo
+virtual environment, which replaces Nt32Pkg and UnixPkg, can be compiled across platforms.
+
+Nt32Pkg
+A Win environment UEFI virtual machine, can not load the actual OS, can only be used to debug UEFI code. Has gradually been replaced by Emulator.
+
+UnixPkg,
+a UEFI virtual device under the Unix operating system, has gradually been replaced by Emulator.
+
+OvmfPkg
+OVMF is a package that provides UEFI support to virtual machines, can use QEMU and KVM to boot OVMF firmware and further boot HLOS.
+
+NetworkPkg
+provides web support packages such as: IPv6 Network Protocol Stack/IPsec Drive/PXE Driver/iSCSI Drive/Network Configuration-Related Shell App.
+
+Omap35xxPkg
+Omap35xxis is a texas Instrument OMAP35xx platform support package.
+
+The purpose
+of this package is to provide Option ROM image support, which you need to rely on if you want to compile PCI-compatible Option ROM image.
+
+SecurityPkg
+offers four security-related features: TPM, User identity (UID), secure boot, and authenticated variable.
+
+StdLib, StDLib Private
+InternalFiles StdLib provides a standard library of UDK implementations, and the StDLib PrivateInternalFiles package is intended for Use for StDLib and cannot be used as another reference.
+
+UefiCpuPkg
+provides UEFI-compatible CPU modules and libraries.
+
+SourceLevelDebugPkg
+is used to provide debug support packages.
+
+SignedCapsulePkg
+provides a signature check scheme to support secure upgrades and recovery.
+
+PcAtChipsetPkg
+this package provides interfaces and implementations for PcAt standard devices.
+
+FatPkg, FatBinPkg
+FAT support package
+————————————————
+版权声明：本文为CSDN博主「程序猿Ricky的日常干货」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/rikeyone/java/article/details/80760204
+
+
+
+
+UEFI is implemented on the Qualcomm platform.
+
+The Unified Extensible firmware interface, unified by Unified extensible firmware interface, is a standard that describes the type interface in detail.
+
+The Extensfirmware Interface(Extensible FirmwareInterface,EFI)isIntel's recommended standard for the architecture, interface, and service of PC firmware. The main purpose is to provide a consistent, properly specified startup service on all platforms prior to OS loading (before startup) and is seen as a successor to the BIOS that has been around for nearly 20 years.
+
+ 
+
+Since UEFI is meant to replace the BIOS, it naturally has its own advantages.
+
+BioS is a compilation implementation, using a 16bit real-mode addressing method, with a maximum support of only 1Mof memory,limited code readability and implemented functionality, and inconvenient porting. The maximum disk space supported by the BIOS is no more than 2TB.
+
+UEFI overcomes all of these disadvantages with a C-language implementation, layered, modular design, CPU and drive-independentness. UEFI can be understood as a complete system that contains power-up timing, drive implementation,os environment establishment (this os can be understood as UEFI running unique os,non-linux, windows),applications. Where the application supports network configuration, class shell environment,fastboot,linuxloader, etc.
+
+
+
+
+The noun abbreviations involved in UEFI are : .
+
+Unified extensible firmware interface (UEFI)
+
+SEC:security .
+
+PEI:pre EFI initialization .
+
+DXE:driver execution Environment .
+
+BDS:Boot Dev Select.
+
+TSL:Transient System Load.
+
+RT: runtime .
+
+AL:after life .
+
+GUID:Globally Unique Identifier .
+
+CSM: The Compatibility Support Module.
+
+TCG:Trust Ed Computing Group.
+
+PE:portable executable .
+
+COFF: Common object file format.
+
+FV: Firmware Volume.
+
+
+
+The implementation of Qualcomm's platform UEFI is divided into two parts: .
+
+1. XBL contains chip-related protocols and key applications such as charging.)
+
+2. ABL contains chip-independent applications such as fastboot and linuxloader.
+
+The protocol concept is heavily used in UEFI code, which actually refers to the driver and contains the driver function pointer and data. Take the rampatition as an example: .
+
+boot_images/QcomPkg/Include/Protocol/EFIRamPartition.h declares the rampatition protocol: .
+
+typedef.
+
+EFI_STATUS.
+
+(EFIAPI isEFI_RAMPARTITION_GETRAMPARTITIONS.))(
+
+INEFI_RAMPARTITION_PROTOCOL this,
+
+OUTRamPartitionEntry sRamPartitions,
+
+IN OUT UINT32 snumPartition.
+
+struct_EFI_RAMPARTITION_PROTOCOL . . .
+
+   UINT64                                  Revision;
+
+  EFI_RAMPARTITION_GETRAMPARTITIONVERSION GetRamPartitionVersion;
+
+EFI_RAMPARTITION_GETHIGHESTBANKBIT Get Highest BankBit;
+
+   EFI_RAMPARTITION_GETRAMPARTITIONS GetRamPartitions.;
+
+};
+
+This protocol was implemented in boot_images/QcomPkg/Drivers/EnvDxe/EnvDxe.c.
+
+STATIC EFI_RAMPARTITION_PROTOCOL RampartitionProtocol.
+
+{
+
+  EFI_RAMPARTITION_PROTOCOL_REVISION,
+
+EFI_GetRamPartitionVersion.
+
+EFI_GetHighestBankBit.
+
+EFI_GetRamPartitions.
+
+};
+
+Protocol, i.e. drive, is implemented in XBL and can be used directly in ABL.
+
+
+
+UEFI start-up process:
+
+
+
+ 
+
+For the Qualcomm platform start-up process in turn, PBL-XBL-gt;ABL.
+
+
+
+General customization is concentrated in the ABL, which is part of the code tree as follows:
+
+Andrioid code path bootable/bootloader/edk2/QcomModulePkg.
+
+Application.
+
+- LinuxLoader.
+
+LinuxLoader.c.
+
+Linuxloader.inf.
+
+-- Include.
+
+- Library.
+
+BoardCustom.h.
+
+- Board.h.
+
+S-BootImage.h.
+
+S.--BootLinux.h.
+
+S.-BootStats.h.
+
+S---Decompress.h.
+
+DeviceInfo.h.
+
+S-DrawUI.h.
+
+FastbootMenu.h.
+
+Sfonts.h.
+
+KeyPad.h.
+
+S. -- LinuxLoaderLib.h.
+
+- list.h.
+
+S-LocateDeviceTree.h.
+
+S.- MenuKeysDetection.h.
+
+S-PartitionTableUpdate.h.
+
+S. -- Recovery.h.
+
+Reg.h.
+
+- ShutdownServices.h.
+
+S--StackCanary.h.
+
+- UnlockMenu.h.
+
+UpdateCmdLine.h.
+
+UpdateDeviceTree.h.
+
+VerifiedBootMenu.h.
+
+- Protocol.
+
+EFICardInfo.h.
+
+EFI ChargerEx.h.
+
+EFIChipInfo.h.
+
+EFIChipInfoType.h.
+
+EFIEraseBlock.h.
+
+EFILimits.h.
+
+EFIMdtp.h.
+
+EFIPlatformInfo.h.
+
+EFIPlatformInfoType.h.
+
+EFIPmicPon.h.
+
+EFIPmicVersion.h.
+
+EFIQseecom.h.
+
+EFIRamPartition.h.
+
+EFIReasonReset.h.
+
+EFIRng.h.
+
+EFIScmModeSwitch.h.
+
+EFIUsbDevice.h.
+
+EFIUsbEx.h.
+
+EFIVerifiedBoot.h.
+
+UsbEx.h.
+
+- Library.
+
+- BootLib.
+
+- Board.c.
+
+S-BootLib.inf.
+
+S.--BootLinux.c.
+
+S.--BootStats.c.
+
+- Decompress.c.
+
+DeviceInfo.c.
+
+S.S.-- DrawUI.c.
+
+FastbootMenu.c.
+
+KeyPad.c.
+
+S. -- LinuxLoaderLib.c.
+
+S-LocateDeviceTree.c.
+
+S.- MenuKeysDetection.c.
+
+- PartitionTableUpdate.c.
+
+S. -- Recovery.c.
+
+- ShutdownServices.c.
+
+- UnlockMenu.c.
+
+UpdateCmdLine.c.
+
+UpdateDeviceTree.c.
+
+- VerifiedBootMenu.c.
+
+FastbootLib.
+
+- FastbootCmds.c.
+
+FastbootCmds.h.
+
+FastbootLib.inf.
+
+FastbootMain.c.
+
+FastbootMain.h.
+
+MetaFormat.h.
+
+- SparseFormat.h.
+
+S.-UsbDescriptors.c.
+
+S.-UsbDescriptors.h.
+
+StackCanary.
+
+- StackCanary.c.
+
+- StackCanary.inf.
+
+- zlib.
+
+- Adler32.c.
+
+- inffast.c.
+
+- inffast.h.
+
+- inffixed.h.
+
+- inflate.c.
+
+- inflate.h.
+
+inftrees.c.
+
+- inftrees.h.
+
+zconf.h.
+
+Zlib.h.
+
+Zlib.inf.
+
+- zutil.c.
+
+- zutil.h.
+
+QcomModulePkg.dec.
+
+QcomModulePkg.dsc.
+
+QcomModulePkg.fdf.
+
+Tools.
+
+-- app_path_set.cmm.
+
+-- check_paths.cmm.
+
+-- debug_app.cmm.
+
+-- elf_tools.py.
+
+-- image_header.py.
+
+-- load_uefi_dump.cmm.
+
+-- log_save.cmm.
+
+-- symbol_Load.cmm.
+
+uefi_core_path_set.cmm.
+
+ 
+
+This section mainly supports the linux loader used to load linux, as well as fastboot. User modifications are mainly concentrated in these two parts, the portal function LinuxEntryLoader.
+
+File descriptions in UEFI that use several suffix formats:
+
+fdf:flash definitionfile, describing the range of flash partition addresses.
+
+dec:package file, which defines THE GUID information for different modules.
+
+dsc:description file, which mainly contains all the inf files that need to be used.
+
+inf: Compilation information for a single module, similar to makefile.
+
+efi: The resulting UEFI executable is finally compiled.
+————————————————
+
+
+
+How to add an LCD driver to UEFI.
+
+mengluoxixiang. 2019-09-04 15:15:25。  1337。  Favorite 10 .
+Category column: Android Drive.
+Copyright.
+Adding an LCD driver to UEFI is much simpler than in BOOTLOADER, where the LCD profile is:
+
+BOOT. XF.1.4?boot_images.QcomPkg?Sdm660Pkg?Library-MDPPlatformLib-MDPPlatformLib.c.
+
+As we can see in the following figure, Qualcomm in the c file has given several examples of LCDs, of which the JD9366 is my new LCD.
+
+
+
+Here's what we're looking at:
+
+const static int8 JD9366_video_xmldata[] =
+"<?xml version=\"1.0\" encoding=\"utf-8\"?>"//版本号
+"<PanelName>JD9366</PanelName>"//panel name
+"<PanelDescription>JD9366 Single DSI Video Mode Panel (720x1440 24bpp)</PanelDescription>"
+	"<Group id=\"Active Timing\">"
+	" <HorizontalActive units=\"Dot Clocks\">720</HorizontalActive>"//水平分辨率
+	" <HorizontalFrontPorch units=\"Dot Clocks\">26</HorizontalFrontPorch>"//水平前沿
+	" <HorizontalBackPorch units=\"Dot Clocks\">26</HorizontalBackPorch>"//水平后沿
+	" <HorizontalSyncPulse units=\"Dot Clocks\">8</HorizontalSyncPulse>"
+	" <VerticalActive units=\"Dot Clocks\">1440</VerticalActive>"//竖直分辨率
+	" <VerticalFrontPorch units=\"Lines\">36</VerticalFrontPorch>"//竖直前沿
+	" <VerticalBackPorch units=\"Lines\">8</VerticalBackPorch>"//竖直后沿
+	" <VerticalSyncPulse units=\"Lines\">4</VerticalSyncPulse>"
+	"</Group>"
+	"<Group id=\"Display Interface\">"
+	" <InterfaceType units=\"QDI_DisplayConnectType\">8</InterfaceType>"
+	" <InterfaceColorFormat units=\"QDI_PixelFormatType\">3</InterfaceColorFormat>"
+	"</Group>"
+	"<Group id=\"DSI Interface\">"
+	" <DSIChannelId units=\"DSI_Channel_IDType\">1</DSIChannelId>"
+	" <DSIVirtualId units=\"DSI_Display_VCType\">0</DSIVirtualId>"
+	" <DSIColorFormat units=\"DSI_ColorFormatType\">36</DSIColorFormat>"
+	" <DSITrafficMode units=\"DSI_TrafficModeType\">2</DSITrafficMode>"
+	" <DSILanes units=\"integer\">4</DSILanes>"//使用4条mipi lane
+	" <DSILowPowerModeInBLLPEOF units='Bool'>True</DSILowPowerModeInBLLPEOF>\n"
+	" <DSILowPowerModeInBLLP units='Bool'>True</DSILowPowerModeInBLLP>\n"
+	" <DSIRefreshRate units='integer Q16.16'>0x3C0000</DSIRefreshRate>\n"
+	" <DSIInitMasterTime units='integer'>32</DSIInitMasterTime>\n"	
+	" <DSIControllerMapping>\n"
+	"	00\n"
+	" </DSIControllerMapping>\n" 
+	"</Group>"
+		"<DSIInitSequence>"
+	
+	
+	"29 E0 00\n"
+	"29 E1 93\n"
+ 
+/***********此处省略N条命令************/
+		
+	" 05 11 00\n"
+	" ff 78\n"
+	" 05 29 00\n"			
+	" ff 28\n"
+	
+		"</DSIInitSequence>"
+		"<DSITermSequence>\n"
+		" 05 28 00\n"
+		" 05 10 00\n"
+		"</DSITermSequence>\n"
+	"<Group id='Backlight Configuration'>"
+	" <BacklightType units='MDP_Panel_BacklightType'>1</BacklightType>\n"
+	" <BacklightPmicControlType units='MDP_PmicBacklightControlType'>2</BacklightPmicControlType>\n"  
+	"</Group>\n";
+Next add this newly added xmldata to the panellist:
+
+const PanelInfoType gPanelList[] =
+{
+…………
+  /*JD9366 video*/
+  PANEL_CREATE_ENTRY("jd9366_video_panel",  MDPPLATFORM_PANEL_JD9366_VIDEO_PANLE,  "qcom,mdss_dsi_jd9366_video", DISP_INTF_DSI, JD9366_video_xmldata, DISP_TOPOLOGY_CONFIG_0, PLL_OVERRIDE_NONE, DISP_MODE_SINGLE_DSI, DISP_MODE_SINGLE_DSI, DISP_MODE_SINGLE_DSI), 
+…………
+}；
+Then select the panel node to use in the MDPPlatform Configure function:
+
+MDP_Status MDPPlatformConfigure(MDP_Display_IDType eDisplayId, MDPPlatformConfigType eConfig, MDPPlatformParams *pPlatformParams)
+{
+………………
+    switch (ePlatformConfig)
+    {
+        case MDPPLATFORM_CONFIG_GETPANELCONFIG:
+        {
+            pPlatformParams->sPlatformPanel.pPanelXMLConfig = (int8 *)JD9366_video_xmldata;
+            pPlatformParams->sPlatformPanel.uConfigSize     = sizeof(JD9366_video_xmldata);
+            pPlatformParams->sPlatformPanel.eSelectedPanel  = MDPPLATFORM_PANEL_JD9366_VIDEO_PANLE;
+        }	
+        break;
+    }
+………………
+}
+Finally, add the newly added panle id to the enumeration type MDPPlatform PanelType:
+
+BOOT. XF.1.4.boot_images.boot_images.QcomPkg?Include?Library-MDPPlatformLibLib.h.
+
+typedef enum {
+  MDPPLATFORM_PANEL_NONE =0x0,             /* No panel specified*/
+………………
+  MDPPLATFORM_PANEL_JD9366_VIDEO_PANLE,    /* New Panel JD9366*/
+………………
+  MDPPLATFORM_PANEL_MAX
+} MDPPlatformPanelType;
+The above is performed under the BOOT.XF.1.4 boot_images directory:
+
+./build_target_sdm660.sh single-series xbl file.
+
+The documents are:
+
+BOOT. XF.1.4.boot_images.QcomPkg?Sdm660Pkg?Bin?660?LA-RELEASE-xbl.elf.
+
+The command for adb single brush xbl is: fastboot flash xbl xbl.elf.
