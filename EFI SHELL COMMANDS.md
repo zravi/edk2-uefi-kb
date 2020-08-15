@@ -4,7 +4,7 @@ EFI SHELL COMMANDS
 Shell Boot Commands
 ==================================================
 
-autoboot     -- View or set autoboot timeout variable
+- autoboot     -- View or set autoboot timeout variable
 bcfg         -- Displays/modifies the driver/boot configuration
 boottest     -- Set/View BootTest bits
 clearlogs     -- Clears FPL and SEL logs
